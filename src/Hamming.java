@@ -28,7 +28,24 @@ public class Hamming {
         return r;
     }
 
-    public void articleNumber() {
+    public String eanErstellen(String s) {
+        return s + eanAnhang(s);
+    }
 
+    public char eanAnhang(String s) {
+        int a = 0;
+        int b = 0;
+
+        for (int i = 0, j = 1; j < 12; i += 2, j += 2) {
+            a += Integer.parseInt(String.valueOf(s.charAt(i)));
+            b += Integer.parseInt(String.valueOf(s.charAt(j)));
+        }
+
+        int x = 10 - ((a + (3 * b)) % 10);
+        return (char) (x + '0');
+    }
+
+    public boolean eanPruefen(String s) {
+        return eanAnhang(s.substring(0, 12)) == s.charAt(12);
     }
 }
