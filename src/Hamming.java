@@ -5,24 +5,20 @@ public class Hamming {
         return a == b ? '0' : '1';
     }
 
-    private char isEven(String s) {
-        return (s.length() - s.replace("1", "").length() % 2) == 0 ? '0' : '1';
-    }
-
     public String hammingCode(String s) {
         return "";
     }
 
-    public String hammingPruefen(String s) {
-        /*
-         * char p0 = xOR(xOR(s.charAt(2), s.charAt(4)), s.charAt(6));
-         * char p1 = xOR(xOR(s.charAt(2), s.charAt(5)), s.charAt(6));
-         * char p2 = xOR(xOR(s.charAt(4), s.charAt(5)), s.charAt(6));
-         */
+    public static void main(String[] args) {
+        Hamming h = new Hamming();
+        h.hammingPruefen("0010011");
+    }
 
-        char p0 = isEven("" + s.charAt(2) + s.charAt(4) + s.charAt(6));
-        char p1 = isEven("" + s.charAt(2) + s.charAt(5) + s.charAt(6));
-        char p2 = isEven("" + s.charAt(4) + s.charAt(5) + s.charAt(6));
+    public String hammingPruefen(String s) {
+        
+        char p0 = xOR(xOR(s.charAt(2), s.charAt(4)), s.charAt(6));
+        char p1 = xOR(xOR(s.charAt(2), s.charAt(5)), s.charAt(6));
+        char p2 = xOR(xOR(s.charAt(4), s.charAt(5)), s.charAt(6));
 
         p0 = xOR(p0, s.charAt(0));
         p1 = xOR(p1, s.charAt(1));
@@ -40,6 +36,8 @@ public class Hamming {
                 r += Character.getNumericValue(s.charAt(i)) + 1 % 2;
             }
         }
+
+        System.out.println(r);
 
         return r;
     }
