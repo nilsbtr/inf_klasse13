@@ -11,7 +11,7 @@ public class Hamming {
 
     public static void main(String[] args) {
         Hamming h = new Hamming();
-        h.hammingPruefen("0010011");
+        h.hammingPruefen("0110011");
     }
 
     public String hammingPruefen(String s) {
@@ -25,19 +25,18 @@ public class Hamming {
         p2 = xOR(p2, s.charAt(3));
 
         String pp = "" + p2 + p1 + p0;
-        int pos = Integer.parseInt(pp, 2);
+        int pos = Integer.parseInt(pp, 2) - 1;
+        if (pos == -1) return s;
         System.out.println("Fehler an der Stelle: " + pos);
 
         String r = "";
         for (int i = 0; i < s.length(); i++) {
-            if (pos - 1 != i) {
+            if (pos != i) {
                 r += s.charAt(i);
             } else {
                 r += Character.getNumericValue(s.charAt(i)) + 1 % 2;
             }
         }
-
-        System.out.println(r);
 
         return r;
     }
