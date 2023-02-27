@@ -14,9 +14,9 @@ public class Farben {
             return 'F';
         } else if (c == Color.YELLOW) {
             return 'R';
-        }  else if (c == Color.ORANGE) {
+        }  else if (c == Color.RED) {
             return 'B';
-        } else if (c == Color.RED) {
+        } else if (c == Color.LIGHT_GRAY) {
             return 'D';
         } else {
             return 'Z';
@@ -31,9 +31,9 @@ public class Farben {
         } else if (c == 'R') {
             return Color.YELLOW;
         } else if (c == 'B') {
-            return Color.ORANGE;
-        } else if (c == 'D') {
             return Color.RED;
+        } else if (c == 'D') {
+            return Color.LIGHT_GRAY;
         } else {
             return Color.WHITE;
         }
@@ -47,10 +47,10 @@ public class Farben {
         } else if (c == Color.GREEN) {
             return Color.YELLOW;
         } else if (c == Color.YELLOW) {
-            return Color.ORANGE;
-        }  else if (c == Color.ORANGE) {
             return Color.RED;
-        } else if (c == Color.RED) {
+        }  else if (c == Color.RED) {
+            return Color.LIGHT_GRAY;
+        } else if (c == Color.LIGHT_GRAY) {
             return Color.WHITE;
         } else {
             return Color.WHITE;
